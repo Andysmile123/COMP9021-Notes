@@ -1,0 +1,4 @@
+number = int(input("what is your favourite number: "))
+if number == 42:
+   print("this is my favourite number")
+print
