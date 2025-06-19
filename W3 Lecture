@@ -1,0 +1,6 @@
+1.# Dictionary
+d = {1: 'a', 2: 'b', 3: 'c'}
+print(list(d))            # [1, 2, 3]   ← 迭代的是键
+print(list(d.keys()))     # [1, 2, 3]   ← 同样是键
+print(list(d.values()))   # ['a', 'b', 'c']  ← 这才是值  
+print(list(d.value()))    # [(1,'a'), (2,'b'), (3,'c')]  ← 键值对的元组
