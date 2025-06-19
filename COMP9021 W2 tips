@@ -54,7 +54,27 @@ seed(for_seed)
 values = [randrange(1, 6) for _ in range(length)]   # randrange represents a random number within a range
 print('Here are the generated values:', values)   # for i in range() indicates how many times the loop has run in the back
 # for i in range(start, stop,step):  // for_ in range indicates only focus on the loop
-6.
+
+6.# open the file
+
+# Open a file for writing
+with open('myfile', 'w') as file:
+    file.write('Line 1: Some text.\n')
+    file.write('Line 2: Some more text.\n')
+
+# Open the file for reading
+with open('myfile', 'r') as file:
+    print(file.read())
+
+# Open the file again for writing
+with open('myfile', 'w') as file:
+    file.write('Line 3: Some more more text.\n')
+    file.write('Line 4: Some more more more text.')
+
+# Open the file again for reading
+with open('myfile', 'r') as file:
+    print(file.read())
+
 
 
 
