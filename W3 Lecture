@@ -18,4 +18,44 @@ x = (2, 4, 6, 8)
 x[1] = 5
 print(x) #TypeError
 
-3.
+3. ##lengths
+words = ['the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog']
+lengths = []
+for word in words:
+    lengths.append(len(word))
+print(lengths)
+
+#second way
+words = ['the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog']
+lengths = [len(word) for word in words]
+print(lengths)
+
+#
+words = ['the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog']
+lengths = [len(word) for word in words if len(word) > 3]
+print(lengths)
+
+#
+nums = [2, 12, 4, 2, 9, 10, 11, 1, 15, 23]
+nums = [x for x in nums if x >= 10]
+print(nums)
+
+#sum
+lists = [[1, 2, 3], [3, 4, 5], [5, 6, 7]]
+total = sum([sum(x) for x in lists])
+print(total)
+
+4.
+
+
+
+
+
+
+
+
+
+
+
+
+
