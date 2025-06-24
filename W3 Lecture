@@ -50,6 +50,13 @@ cycle = [] ## 有顺序，可以添加，可以切片
 local_visited = () ## tuple
 local_visited = set() ## set 无顺序， 不能切片， 自动去重
 
+5.##index
+path = [3, 5, 2, 7, 5]
+i = path.index(2) # 找到某个值第一次在list中出现的位置
+print(i)
+###########  
+2
+
 
 
 
