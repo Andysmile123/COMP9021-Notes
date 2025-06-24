@@ -48,7 +48,7 @@ print(total)
 4.##list,set,tuple
 cycle = [] ## 有顺序，可以添加，可以切片
 local_visited = () ## tuple
-local_visited = set() ## set
+local_visited = set() ## set 无顺序， 不能切片， 自动去重
 
 
 
