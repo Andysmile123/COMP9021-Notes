@@ -1,0 +1,86 @@
+# COMP9021 25T2
+# Quiz 2 *** Due Thursday Week 4 @ 9.00pm
+#        *** Late penalty 5% per day
+#        *** Not accepted after Sunday Week 4 @ 9.00pm
+
+# DO *NOT* WRITE YOUR NAME TO MAINTAIN ANONYMITY FOR PLAGIARISM DETECTION
+
+import sys
+from random import seed, randrange
+from pprint import pprint
+
+try:
+    for_seed, upper_bound = (abs(int(x)) + 1 for x in input('Enter two integers: ').split())
+except ValueError:
+    print('Incorrect input, giving up.')
+    sys.exit()
+seed(for_seed)
+mapping = {}
+for i in range(1, upper_bound):
+    r = randrange(-upper_bound // 8, upper_bound)
+    if r > 0:
+        mapping[i] = r
+print('\nThe generated dictionary is:')
+print('  ', mapping)
+keys = sorted(mapping.keys())
+print('\nThe keys from smallest to largest are: ')
+print('  ', keys)
+
+cycles = []
+reversed_dict_per_length = {}
+
+# INSERT YOUR CODE HERE
+cycles = []
+visited = set()
+for key in sorted(mapping):
+    if key in visited:
+        continue
+
+    path = []
+    local_visited = set()
+    current = key
+
+    while True:
+        if current not in mapping:
+            break
+        if current in local_visited:
+            i = path.index(current)
+            cycle = path[i:]
+            min_val = min(cycle)
+            mi = cycle.index(min_val)
+            cycle = cycle[mi:]+cycle[:mi]
+            if cycle[0] not in visited:
+                cycles.append(cycle)
+                visited.update(cycle)
+            break
+        else:
+            path.append(current)
+            local_visited.add(current)
+            current = mapping[current]
+# 保证环按第一个元素升序
+cycles.sort(key=lambda c: c[0])
+
+
+# 反向字典
+reversed_dict = {}
+for k, v in mapping.items():
+    reversed_dict.setdefault(v, []).append(k)
+for k_list in reversed_dict.values():
+    k_list.sort()
+
+# 分组
+for v, k_list in reversed_dict.items():
+    length = len(k_list)
+    reversed_dict_per_length.setdefault(length, {})[v] = k_list
+
+print('\nThe properly ordered cycles given by the dictionary are: ')
+print('  ', cycles)
+print('\nThe triply ordered reversed dictionary per lengths is: ')
+pprint(reversed_dict_per_length)
+
+
+
+
+
+
+
